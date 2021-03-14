@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/scumm_bar/BarDoorOpen.gd" type="Script" id=1]
 [ext_resource path="res://scenes/scumm_bar/Navigation2D.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://scenes/scumm_bar/ScummBar.png" type="Texture" id=4]
+[ext_resource path="res://scenes/scumm_bar/CameraSwitch.gd" type="Script" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -44,6 +45,9 @@ animations = [ {
 "speed": 4.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 1.16279, 4.92126 )
+
 [sub_resource type="NavigationPolygon" id=8]
 vertices = PoolVector2Array( 78.1977, 28.7402, 71.9477, 25.1969, 72.9651, 21.8504, 75.7268, 21.063, 82.8489, 21.2598, 86.0465, 23.2283, 89.3895, 25.9843, 91.4244, 27.9528, 40.5523, 21.063, 41.7151, 20.4724, 45.0581, 20.8661, 44.9128, 25, 44.6221, 27.7559, 33.7209, 19.2913, 34.157, 20.0787, 71.8023, 17.126, 69.9128, 19.0945, 69.4767, 16.9291, 9.88372, 23.4252, 4.50581, 23.4252, 4.94186, 22.4409, 10.9012, 22.6378, 11.6279, 24.2126, 11.4826, 22.6378, 56.1047, 29.3307, 58.2849, 27.1654, 22.5291, 24.6063, 23.4012, 27.9528, 12.2093, 27.7559, 12.2093, 25.5906, 16.2791, 24.4095, 21.0756, 23.8189, 59.593, 19.8819, 63.6628, 17.7165, 54.9419, 19.685, 59.3023, 18.1102, 56.1046, 20.4724, 54.3605, 21.4567, 53.1977, 20.8661, 14.2442, 22.6378, 28.6337, 20.6693, 32.4128, 21.063, 29.5058, 22.4409, 27.3256, 21.2598, 23.2558, 21.4567, 34.593, 25, 35.9012, 22.4409, 35.1744, 27.7559, 38.6628, 21.8504, 45.6395, 25.5906, 47.093, 28.937, 46.8023, 24.6063, 48.4012, 20.8661, 57.7035, 24.2126 )
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5, 6, 7 ), PoolIntArray( 8, 9, 10, 11, 12 ), PoolIntArray( 13, 9, 8, 14 ), PoolIntArray( 15, 3, 2, 16, 17 ), PoolIntArray( 18, 19, 20, 21 ), PoolIntArray( 22, 18, 21, 23 ), PoolIntArray( 1, 0, 24, 25 ), PoolIntArray( 26, 27, 28, 29, 30, 31 ), PoolIntArray( 17, 16, 32, 33 ), PoolIntArray( 34, 35, 33, 32, 36 ), PoolIntArray( 34, 36, 37, 38 ), PoolIntArray( 29, 22, 23, 39, 30 ), PoolIntArray( 40, 13, 14, 41, 42, 43 ), PoolIntArray( 42, 26, 31, 44, 43 ), PoolIntArray( 45, 42, 41, 46, 12 ), PoolIntArray( 12, 47, 45 ), PoolIntArray( 12, 46, 48 ), PoolIntArray( 12, 48, 8 ), PoolIntArray( 12, 11, 49, 50 ), PoolIntArray( 50, 49, 51, 24 ), PoolIntArray( 24, 51, 52, 38, 37, 53, 25 ) ]
@@ -52,6 +56,13 @@ outlines = [ PoolVector2Array( 10.9012, 22.6378, 4.94186, 22.4409, 4.50581, 23.4
 [node name="scumm_bar" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
+
+[node name="CameraSwitch" type="Area2D" parent="Background"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/CameraSwitch"]
+polygon = PoolVector2Array( 303, 102, 303, 148, 332, 149, 332, 101 )
+script = ExtResource( 5 )
+camera = NodePath("../../../Camera2D")
 
 [node name="Bar" type="Sprite" parent="Background"]
 position = Vector2( 320, 72 )
@@ -102,21 +113,34 @@ polygon = PoolVector2Array( -19, -18, 17, -20, 17, 18, -17, 18 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Background"]
 position = Vector2( 183, 47 )
 frames = SubResource( 7 )
-frame = 1
+frame = 4
 playing = true
 
-[node name="Navigation2D" type="Navigation2D" parent="Background"]
+[node name="Navigation2D" type="Navigation2D" parent="."]
 scale = Vector2( 6.88, 5.08 )
 script = ExtResource( 2 )
 
-[node name="Player" type="Sprite" parent="Background/Navigation2D"]
+[node name="Player" type="Sprite" parent="Navigation2D"]
 position = Vector2( 14.8256, 24.8031 )
 scale = Vector2( 0.0406975, 0.19685 )
 z_index = 1
 texture = ExtResource( 3 )
 offset = Vector2( 0, -25 )
 
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Background/Navigation2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Navigation2D/Player"]
+position = Vector2( -364.287, -126 )
+scale = Vector2( 24.5715, 5.08001 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation2D/Player/KinematicBody2D"]
+position = Vector2( 14.8256, 20.0787 )
+shape = SubResource( 9 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 8 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 160, 100 )
+current = true
+[connection signal="body_entered" from="Background/CameraSwitch" to="Background/CameraSwitch/CollisionPolygon2D" method="_on_CameraSwitch_body_entered"]
 [connection signal="input_event" from="Background/Door/Area2D" to="Background/Door/BarDoorOpen" method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Background/Door/Area2D" to="Background/Door" method="_on_Area2D_mouse_entered"]
