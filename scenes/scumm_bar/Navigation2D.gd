@@ -1,9 +1,15 @@
 extends Navigation2D
 
 export(float) var character_speed = 10.0
+# export (NodePath) var hero = 'Player'
+
+export(NodePath) var hero: NodePath = 'Player'
+onready var character : Node2D
+
 var path = []
 
-onready var character = $Hero
+func _ready():
+	character = get_node(hero)
 
 func _process(delta):
 	var walk_distance = character_speed * delta
@@ -16,7 +22,10 @@ func _process(delta):
 func _input(event):
 	if not Input.is_mouse_button_pressed(1):
 		return
-	_update_navigation_path(character.position, get_local_mouse_position())
+	
+	var position = character.position
+	var clicked = get_local_mouse_position()
+	_update_navigation_path(position , get_local_mouse_position())
 
 
 func move_along_path(distance):
