@@ -19,12 +19,11 @@ func _process(delta):
 # The "click" event is a custom input action defined in
 # Project > Project Settings > Input Map tab.
 
-func _input(event):
+func _input(_event):
 	if not Input.is_mouse_button_pressed(1):
 		return
 	
 	var position = character.position
-	var clicked = get_local_mouse_position()
 	_update_navigation_path(position , get_local_mouse_position())
 
 

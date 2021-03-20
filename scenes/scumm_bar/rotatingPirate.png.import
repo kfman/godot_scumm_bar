@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ScummBar.png-2a14e389daed0ac56e8d5efca25b78a6.stex"
+path="res://.import/rotatingPirate.png-35d8f863e353d20573c19b45697d5e8f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/scumm_bar/ScummBar.png"
-dest_files=[ "res://.import/ScummBar.png-2a14e389daed0ac56e8d5efca25b78a6.stex" ]
+source_file="res://scenes/scumm_bar/rotatingPirate.png"
+dest_files=[ "res://.import/rotatingPirate.png-35d8f863e353d20573c19b45697d5e8f.stex" ]
 
 [params]
 

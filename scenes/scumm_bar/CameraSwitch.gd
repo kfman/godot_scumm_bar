@@ -20,7 +20,7 @@ func _ready():
 #	pass
 
 
-func _on_CameraSwitch_body_entered(body):
+func _on_CameraSwitch_body_entered(_body):
 	if cam.position.x > 320:
 		cam.position = Vector2(160,100)
 	else:

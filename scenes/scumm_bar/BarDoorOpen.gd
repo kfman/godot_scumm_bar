@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var shape :CollisionPolygon2D = $Shape
+# onready var shape :CollisionPolygon2D = $Shape
 onready var barDoor = $BarDoorOpen
 
 # Declare member variables here. Examples:
@@ -16,8 +16,10 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func _input(_event):
+	pass
 
-func _on_Area2D_input_event(viewport, event, shape_idx):
+func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton && event.pressed:
 		print('Clicked inside')
 		barDoor.visible = !barDoor.visible

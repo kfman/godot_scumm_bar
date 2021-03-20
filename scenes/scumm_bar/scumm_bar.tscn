@@ -1,54 +1,16 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/scumm_bar/BarDoorOpen.gd" type="Script" id=1]
 [ext_resource path="res://scenes/scumm_bar/Navigation2D.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://scenes/scumm_bar/ScummBar.png" type="Texture" id=4]
 [ext_resource path="res://scenes/scumm_bar/CameraSwitch.gd" type="Script" id=5]
+[ext_resource path="res://scenes/scumm_bar/rotatingPriate.tres" type="SpriteFrames" id=6]
 
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 0, 144, 64, 48 )
-
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 64, 144, 64, 48 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 128, 144, 64, 48 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 192, 144, 64, 48 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 256, 144, 64, 48 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 320, 144, 64, 48 )
-
-[sub_resource type="SpriteFrames" id=7]
-resource_local_to_scene = true
-animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "default",
-"speed": 4.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 1.16279, 4.92126 )
 
-[sub_resource type="NavigationPolygon" id=8]
+[sub_resource type="NavigationPolygon" id=9]
 vertices = PoolVector2Array( 78.1977, 28.7402, 71.9477, 25.1969, 72.9651, 21.8504, 75.7268, 21.063, 82.8489, 21.2598, 86.0465, 23.2283, 89.3895, 25.9843, 91.4244, 27.9528, 40.5523, 21.063, 41.7151, 20.4724, 45.0581, 20.8661, 44.9128, 25, 44.6221, 27.7559, 33.7209, 19.2913, 34.157, 20.0787, 71.8023, 17.126, 69.9128, 19.0945, 69.4767, 16.9291, 9.88372, 23.4252, 4.50581, 23.4252, 4.94186, 22.4409, 10.9012, 22.6378, 11.6279, 24.2126, 11.4826, 22.6378, 56.1047, 29.3307, 58.2849, 27.1654, 22.5291, 24.6063, 23.4012, 27.9528, 12.2093, 27.7559, 12.2093, 25.5906, 16.2791, 24.4095, 21.0756, 23.8189, 59.593, 19.8819, 63.6628, 17.7165, 54.9419, 19.685, 59.3023, 18.1102, 56.1046, 20.4724, 54.3605, 21.4567, 53.1977, 20.8661, 14.2442, 22.6378, 28.6337, 20.6693, 32.4128, 21.063, 29.5058, 22.4409, 27.3256, 21.2598, 23.2558, 21.4567, 34.593, 25, 35.9012, 22.4409, 35.1744, 27.7559, 38.6628, 21.8504, 45.6395, 25.5906, 47.093, 28.937, 46.8023, 24.6063, 48.4012, 20.8661, 57.7035, 24.2126 )
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5, 6, 7 ), PoolIntArray( 8, 9, 10, 11, 12 ), PoolIntArray( 13, 9, 8, 14 ), PoolIntArray( 15, 3, 2, 16, 17 ), PoolIntArray( 18, 19, 20, 21 ), PoolIntArray( 22, 18, 21, 23 ), PoolIntArray( 1, 0, 24, 25 ), PoolIntArray( 26, 27, 28, 29, 30, 31 ), PoolIntArray( 17, 16, 32, 33 ), PoolIntArray( 34, 35, 33, 32, 36 ), PoolIntArray( 34, 36, 37, 38 ), PoolIntArray( 29, 22, 23, 39, 30 ), PoolIntArray( 40, 13, 14, 41, 42, 43 ), PoolIntArray( 42, 26, 31, 44, 43 ), PoolIntArray( 45, 42, 41, 46, 12 ), PoolIntArray( 12, 47, 45 ), PoolIntArray( 12, 46, 48 ), PoolIntArray( 12, 48, 8 ), PoolIntArray( 12, 11, 49, 50 ), PoolIntArray( 50, 49, 51, 24 ), PoolIntArray( 24, 51, 52, 38, 37, 53, 25 ) ]
 outlines = [ PoolVector2Array( 10.9012, 22.6378, 4.94186, 22.4409, 4.50581, 23.4252, 9.88372, 23.4252, 11.6279, 24.2126, 12.2093, 25.5906, 12.2093, 27.7559, 23.4012, 27.9528, 22.5291, 24.6063, 29.5058, 22.4409, 34.593, 25, 35.1744, 27.7559, 44.6221, 27.7559, 47.093, 28.937, 56.1047, 29.3307, 78.1977, 28.7402, 91.4244, 27.9528, 89.3895, 25.9843, 86.0465, 23.2283, 82.8489, 21.2598, 75.7268, 21.063, 71.8023, 17.126, 69.4767, 16.9291, 63.6628, 17.7165, 59.3023, 18.1102, 54.9419, 19.685, 53.1977, 20.8661, 48.4012, 20.8661, 46.8023, 24.6063, 45.6395, 25.5906, 44.9128, 25, 45.0581, 20.8661, 41.7151, 20.4724, 33.7209, 19.2913, 28.6337, 20.6693, 27.3256, 21.2598, 23.2558, 21.4567, 21.0756, 23.8189, 16.2791, 24.4095, 14.2442, 22.6378, 11.4826, 22.6378 ), PoolVector2Array( 32.4128, 21.063, 35.9012, 22.4409, 38.6628, 21.8504, 40.5523, 21.063, 34.157, 20.0787 ), PoolVector2Array( 54.3605, 21.4567, 57.7035, 24.2126, 58.2849, 27.1654, 71.9477, 25.1969, 72.9651, 21.8504, 69.9128, 19.0945, 59.593, 19.8819, 56.1046, 20.4724 ) ]
@@ -110,10 +72,11 @@ position = Vector2( 52, 96 )
 [node name="Shape" type="CollisionPolygon2D" parent="Background/Door/Area2D"]
 polygon = PoolVector2Array( -19, -18, 17, -20, 17, 18, -17, 18 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Background"]
-position = Vector2( 183, 47 )
-frames = SubResource( 7 )
-frame = 4
+[node name="RotatingPirate" type="AnimatedSprite" parent="Background"]
+position = Vector2( 184, 48 )
+frames = ExtResource( 6 )
+animation = "default2"
+frame = 3
 playing = true
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
@@ -133,10 +96,10 @@ scale = Vector2( 24.5715, 5.08001 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation2D/Player/KinematicBody2D"]
 position = Vector2( 14.8256, 20.0787 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
-navpoly = SubResource( 8 )
+navpoly = SubResource( 9 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 160, 100 )
